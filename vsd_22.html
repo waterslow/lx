@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>价值敏感设计（VSD）全景合集：隐喻卡片译解、22 种方法与研究专题</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Balanced Editorial Compendium · Mobile-First Single-File Dual-Track Navigation · Hero Split → Dual-Entry Nav → Axon Mind Map → Metaphor Cards 6-Card Translation & 4-Step Logic → VSD 9 Constructs & Tripartite Loop → All 22 Methods Handbook → 5 Application Domains & HCI/Nordic Research Resonance → Sources · Instrument Serif + Noto Serif SC + Plus Jakarta Sans + Noto Sans SC + JetBrains Mono · Cool Architectural Grey (#F4F6F8) + Deep Teal (#0F766E) & Amber (#B45309) · 0px radius · Emphasis numeral · 3 Vertical SVGs + 2 Responsive Open Tables */
+
+:root {
+  --paper: #F4F6F8;
+  --ink: #0F172A;
+  --ink2: #334155;
+  --mute: #475569;
+  --hair: #CBD5E1;
+  --accent: #0D9488;
+  --accent-text: #0F766E;
+  --accent-2: #D97706;
+  --accent-2-text: #B45309;
+  --band-bg: #FFFFFF;
+  --serif: 'Instrument Serif', 'Noto Serif SC', Georgia, serif;
+  --sans: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: clamp(28px, 6vw, 68px) clamp(18px, 8vw, 108px) 92px;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.74;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Typography */
+h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.95rem, 5.2vw, 3.8rem);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 3.8vw, 2.25rem);
+  line-height: 1.24;
+  letter-spacing: -0.015em;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.12rem;
+  line-height: 1.4;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--ink2);
+  font-size: 1rem;
+  max-width: 68ch;
+}
+
+a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.deck {
+  font-size: clamp(1rem, 2.2vw, 1.18rem);
+  color: var(--ink2);
+  margin: 0 0 24px;
+  max-width: 64ch;
+}
+
+/* Hero Split */
+.hero-split {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.hero-left {
+  flex: 1 1 560px;
+}
+
+.hero-right {
+  text-align: right;
+}
+
+.emphasis-numeral {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6.5vw, 4.8rem);
+  line-height: 1;
+  color: var(--accent-text);
+  display: block;
+}
+
+.emphasis-caption {
+  font-size: 0.88rem;
+  color: var(--mute);
+  margin-top: 8px;
+  display: block;
+  line-height: 1.45;
+}
+
+/* Dual-Entry Mobile-First Navigation (Open hairlines, 0 boxes) */
+.dual-entry {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 36px;
+  padding: 20px 0 22px;
+  border-bottom: 1px solid var(--hair);
+  margin-bottom: 48px;
+}
+
+.entry-col-title {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-2-text);
+  margin-bottom: 10px;
+}
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.entry-links a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent-text);
+  padding: 3px 0;
+}
+
+.entry-links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* Sections */
+.sec {
+  margin-top: 76px;
+  padding-top: 32px;
+  border-top: 1px solid var(--hair);
+}
+
+/* Multi-column open strips */
+.strip-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.strip-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.strip-item {
+  border-top: 1px solid var(--hair);
+  padding-top: 16px;
+}
+
+/* Figures & SVGs */
+figure {
+  margin: 28px 0 38px;
+  padding: 0;
+}
+
+.fig-title {
+  font-weight: 700;
+  font-size: 1.06rem;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: var(--mute);
+  margin-top: 12px;
+  line-height: 1.55;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  max-width: 780px;
+  height: auto;
+  overflow: visible;
+}
+
+/* Open Responsive Tables (max 3; here 2 tables) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0 34px;
+  font-size: 0.94rem;
+}
+
+th {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--mute);
+  border-bottom: 2px solid var(--ink);
+  padding: 12px 14px 12px 0;
+  text-align: left;
+}
+
+td {
+  padding: 15px 14px 15px 0;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: top;
+  color: var(--ink2);
+  line-height: 1.64;
+}
+
+td.num {
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  color: var(--accent-text);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+tr.group-row td {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 20px 0 10px;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.en-sub {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--mute);
+  margin-top: 3px;
+}
+
+.quote-sub {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.86rem;
+  color: var(--mute);
+}
+
+.pull-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.32rem, 3vw, 1.9rem);
+  line-height: 1.44;
+  color: var(--ink);
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+  margin: 34px 0;
+  max-width: 54ch;
+}
+
+/* Full-Bleed Band (max 1) */
+.full-band {
+  margin: 72px calc(-1 * clamp(18px, 8vw, 108px)) 0;
+  padding: 52px clamp(18px, 8vw, 108px);
+  background-color: var(--band-bg);
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+
+.full-band-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+ul.clean-list, ol.clean-list {
+  margin: 14px 0 22px;
+  padding-left: 20px;
+  color: var(--ink2);
+  max-width: 68ch;
+}
+
+ul.clean-list li, ol.clean-list li {
+  margin-bottom: 12px;
+  line-height: 1.68;
+}
+
+/* Mobile Responsive Overrides */
+@media (max-width: 780px) {
+  .hero-right {
+    text-align: left;
+  }
+  .dual-entry, .strip-3, .strip-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  table, thead, tbody, tr, td {
+    display: block;
+    width: 100%;
+  }
+  thead {
+    display: none;
+  }
+  tr {
+    border-bottom: 2px solid var(--hair);
+    padding: 14px 0;
+  }
+  tr.group-row {
+    border-bottom: 1.5px solid var(--ink);
+    padding: 16px 0 8px;
+  }
+  tr.group-row td {
+    border-bottom: none;
+    padding: 0;
+  }
+  tr.group-row td::before {
+    display: none;
+  }
+  td {
+    border-bottom: none;
+    padding: 5px 0;
+  }
+  td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--accent-2-text);
+    margin-bottom: 2px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero-split">
+    <div class="hero-left">
+      <h1>价值敏感设计（VSD）全景合集：隐喻卡片译解、22 种方法与研究专题</h1>
+      <p class="deck">
+        本页完整整合华盛顿大学 Value Sensitive Design 实验室的《国际司法隐喻卡片》（<a href="https://old.vsdesign.org/publications/pdf/metaphor_cards_internationaljustice_v.march2018.pdf" target="_blank" rel="noopener noreferrer">2018 PDF</a>）与 <a href="https://vsdesign.org/vsd/" target="_blank" rel="noopener noreferrer">vsdesign.org/vsd/</a> 学术总纲，涵盖 9 大理论构念、22 种系统方法、5 大应用版图及面向工业设计与 HCI 研究的延伸分析。全文专为手机竖屏与桌面宽屏双向适配。
+      </p>
+    </div>
+    <div class="hero-right">
+      <span class="emphasis-numeral">6 · 9 · 22</span>
+      <span class="emphasis-caption">6 张核心司法隐喻卡片<br>9 大理论构念 · 22 项学术方法</span>
+    </div>
+  </header>
+
+  <!-- DUAL-ENTRY NAVIGATION INSIDE SINGLE FILE -->
+  <nav class="dual-entry" aria-label="双轨快速导航">
+    <div>
+      <div class="entry-col-title">入口一 · 视觉图谱速览（竖版大字号 SVG）</div>
+      <div class="entry-links">
+        <a href="#mindmap">01 轴突全景思维导图</a>
+        <a href="#logic-flow">02 三元引擎与隐喻四步法</a>
+        <a href="#timeline">03 百年多生命周期时间轴</a>
+      </div>
+    </div>
+    <div>
+      <div class="entry-col-title">入口二 · 译解全文与方法速查</div>
+      <div class="entry-links">
+        <a href="#metaphor-cards">04 六张隐喻卡片全译</a>
+        <a href="#constructs-methods">05 九大构念与 22 种方法表</a>
+        <a href="#applications-research">06 应用版图与 HCI 研究专题</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PART 1: AXON MIND MAP -->
+  <section id="mindmap" class="sec" style="margin-top: 0; border-top: none; padding-top: 0;">
+    <h2>全景轴突思维导图：一图看懂 VSD 在做什么</h2>
+    <p>
+      VSD 始于 1990 年代，主张将“人类价值（伦理、尊严、公平、隐私、关怀等）”系统化前置到技术设计全过程，核心在于激发<strong>道德想象力与技术想象力</strong>。以下竖版轴突脑图将本次整合的四大核心脉络一网打尽，手机端无需横向缩放即可直接阅读。
+    </p>
+
+    <figure>
+      <div class="fig-title">价值敏感设计（VSD）理论、隐喻卡片、22 种方法与研究共振全景</div>
+      <svg viewBox="0 0 640 840" width="100%" role="img" aria-label="VSD 全景竖版轴突思维导图">
+        <line x1="88" y1="90" x2="88" y2="795" stroke="#0F172A" stroke-width="3"/>
+
+        <!-- Root Soma -->
+        <circle cx="88" cy="58" r="44" fill="#0F172A"/>
+        <text x="88" y="53" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="700">VSD</text>
+        <text x="88" y="76" text-anchor="middle" fill="#5EEAD4" font-size="14">核心胞体</text>
+        <text x="150" y="52" fill="#0F172A" font-size="21" font-weight="700">Value Sensitive Design (UW VSD Lab)</text>
+        <text x="150" y="78" fill="#475569" font-size="15">以道德与技术想象力塑造社会技术系统</text>
+
+        <!-- Branch 1: 9 Constructs -->
+        <path d="M 88 164 C 128 164, 140 164, 176 164" fill="none" stroke="#0D9488" stroke-width="3"/>
+        <circle cx="88" cy="164" r="8" fill="#0D9488"/>
+        <circle cx="176" cy="164" r="8" fill="#0D9488"/>
+        <text x="196" y="171" fill="#0F766E" font-size="20" font-weight="700">1. 核心在做什么：9 大理论构念</text>
+
+        <path d="M 176 164 C 176 204, 196 204, 224 204" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+        <circle cx="224" cy="204" r="4.5" fill="#0D9488"/>
+        <text x="238" y="210" fill="#1E293B" font-size="16">交互立场：人塑造技术，技术反过来重塑社会</text>
+
+        <path d="M 176 164 C 176 238, 196 238, 224 238" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+        <circle cx="224" cy="238" r="4.5" fill="#0D9488"/>
+        <text x="238" y="244" fill="#1E293B" font-size="16">三元迭代：概念调查 + 实证田野 + 技术原型</text>
+
+        <path d="M 176 164 C 176 272, 196 272, 224 272" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+        <circle cx="224" cy="272" r="4.5" fill="#0D9488"/>
+        <text x="238" y="278" fill="#1E293B" font-size="16">直接/间接/非人类利益相关者 &amp; 价值张力平衡</text>
+
+        <!-- Branch 2: Metaphor Cards -->
+        <path d="M 88 348 C 128 348, 140 348, 176 348" fill="none" stroke="#D97706" stroke-width="3"/>
+        <circle cx="88" cy="348" r="8" fill="#D97706"/>
+        <circle cx="176" cy="348" r="8" fill="#D97706"/>
+        <text x="196" y="355" fill="#B45309" font-size="20" font-weight="700">2. 国际司法隐喻卡片（6 卡 + 模板）</text>
+
+        <path d="M 176 348 C 176 388, 196 388, 224 388" fill="none" stroke="#D97706" stroke-width="1.8"/>
+        <circle cx="224" cy="388" r="4.5" fill="#D97706"/>
+        <text x="238" y="394" fill="#1E293B" font-size="16">治愈与见证：医院 (照护) / 剧场 (象征行动)</text>
+
+        <path d="M 176 348 C 176 422, 196 422, 224 422" fill="none" stroke="#D97706" stroke-width="1.8"/>
+        <circle cx="224" cy="422" r="4.5" fill="#D97706"/>
+        <text x="238" y="428" fill="#1E293B" font-size="16">记忆与创新：博物馆 (遗产) / 初创 (试验场)</text>
+
+        <path d="M 176 348 C 176 456, 196 456, 224 456" fill="none" stroke="#D97706" stroke-width="1.8"/>
+        <circle cx="224" cy="456" r="4.5" fill="#D97706"/>
+        <text x="238" y="462" fill="#1E293B" font-size="16">效能与科学：公司 (效率) / 实验室 (可复现性)</text>
+
+        <!-- Branch 3: 22 Methods -->
+        <path d="M 88 532 C 128 532, 140 532, 176 532" fill="none" stroke="#0D9488" stroke-width="3"/>
+        <circle cx="88" cy="532" r="8" fill="#0D9488"/>
+        <circle cx="176" cy="532" r="8" fill="#0D9488"/>
+        <text x="196" y="539" fill="#0F766E" font-size="20" font-weight="700">3. 官网 22 种方法与免费工具箱</text>
+
+        <path d="M 176 532 C 176 572, 196 572, 224 572" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+        <circle cx="224" cy="572" r="4.5" fill="#0D9488"/>
+        <text x="238" y="578" fill="#1E293B" font-size="16">治理与代表：数据声明 / 多元声音 / 利益相关者代币</text>
+
+        <path d="M 176 532 C 176 606, 196 606, 224 606" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+        <circle cx="224" cy="606" r="4.5" fill="#0D9488"/>
+        <text x="238" y="612" fill="#1E293B" font-size="16">挖掘与权衡：价值水坝与水流 / 价值层级 / 场景与草图</text>
+
+        <path d="M 176 532 C 176 640, 196 640, 224 640" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+        <circle cx="224" cy="640" r="4.5" fill="#0D9488"/>
+        <text x="238" y="646" fill="#1E293B" font-size="16">卡片工具箱：远景卡 (42张) / 安全卡 (42张) / 隐喻卡</text>
+
+        <!-- Branch 4: Applications & User Research -->
+        <path d="M 88 716 C 128 716, 140 716, 176 716" fill="none" stroke="#D97706" stroke-width="3"/>
+        <circle cx="88" cy="716" r="8" fill="#D97706"/>
+        <circle cx="176" cy="716" r="8" fill="#D97706"/>
+        <text x="196" y="723" fill="#B45309" font-size="20" font-weight="700">4. 应用版图与你的 HCI / 北欧研究</text>
+
+        <path d="M 176 716 C 176 756, 196 756, 224 756" fill="none" stroke="#D97706" stroke-width="1.8"/>
+        <circle cx="224" cy="756" r="4.5" fill="#D97706"/>
+        <text x="238" y="762" fill="#1E293B" font-size="16">13 大领域：AI 偏见、医疗、司法、城市生态、科技政策</text>
+
+        <path d="M 176 716 C 176 790, 196 790, 224 790" fill="none" stroke="#D97706" stroke-width="1.8"/>
+        <circle cx="224" cy="790" r="4.5" fill="#D97706"/>
+        <text x="238" y="796" fill="#1E293B" font-size="16">直接共振：多生命周期 &amp; Material Matters &amp; 奥胡斯 VASE</text>
+      </svg>
+      <figcaption>图 1：综合 <a href="https://vsdesign.org/vsd/" target="_blank" rel="noopener noreferrer">vsdesign.org/vsd/</a> 与 <a href="https://old.vsdesign.org/publications/pdf/metaphor_cards_internationaljustice_v.march2018.pdf" target="_blank" rel="noopener noreferrer">Metaphor Cards (2018)</a> 构建的竖版知识轴突脑图。</figcaption>
+    </figure>
+  </section>
+
+  <!-- PART 2: METAPHOR CARDS TRANSLATION & LOGIC -->
+  <section id="metaphor-cards" class="sec">
+    <h2>《国际司法隐喻卡片》完整译解与四步逻辑</h2>
+    <p>
+      目标 PDF（2018 年 3 月版，共 14 页）包含 <strong>6 张双面隐喻卡片</strong>与 <strong>1 套空白模板</strong>。每张卡片正面为隐喻名称与实景照片，背面通过“卢旺达国际刑事法庭（ICTR）一线原声 + 跨领域权威定义 + 3 个桥梁概念”的三元并置，打破“信息系统 = 检索数据库”的默认心智模型。
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 13%;">隐喻卡片</th>
+          <th style="width: 33%;">ICTR 司法原声（译文与出处）</th>
+          <th style="width: 35%;">跨领域权威定义（译文与来源）</th>
+          <th style="width: 19%;">桥梁概念</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="隐喻卡片"><strong>1. 医院</strong><span class="en-sub">HOSPITAL</span></td>
+          <td data-label="ICTR 司法原声">
+            “恢复性司法真正旨在聚焦于受害者……它关注受害者及其治愈与康复。”
+            <span class="quote-sub">— Adama Dieng，ICTR 书记官（<a href="http://www.tribunalvoices.org/voices/video/78" target="_blank" rel="noopener noreferrer">Video #78</a>）</span>
+          </td>
+          <td data-label="跨领域权威定义">
+            “医院是有组织的医疗机构，提供全天候诊疗服务……必须围绕人的需求组织，与其他社会照护服务紧密协作。”
+            <span class="quote-sub">— 世界卫生组织（WHO）</span>
+          </td>
+          <td data-label="桥梁概念"><strong>照护</strong> (Care) · <strong>治愈</strong> (Healing) · <strong>福祉</strong> (Well-being)</td>
+        </tr>
+        <tr>
+          <td data-label="隐喻卡片"><strong>2. 剧场</strong><span class="en-sub">THEATRE</span></td>
+          <td data-label="ICTR 司法原声">
+            “国际系统无法起诉所有人，必须聚焦少数象征性罪行……向其他司法管辖区传递威慑信号：哪怕在最高层级，问责也是可能的。”
+            <span class="quote-sub">— Hassan Jallow，ICTR 检察官（<a href="http://www.tribunalvoices.org/voices/video/270" target="_blank" rel="noopener noreferrer">Video #270</a>）</span>
+          </td>
+          <td data-label="跨领域权威定义">
+            “剧场是人们演绎并见证最迫切、最深刻关切的艺术；它既是展示厅也是论坛，是一种在观众眼前持续生成的活态艺术。”
+            <span class="quote-sub">— Robert Cohen，《Theater Brief》第 10 版</span>
+          </td>
+          <td data-label="桥梁概念"><strong>受众</strong> (Audience) · <strong>冲突</strong> (Conflict) · <strong>象征行动</strong> (Symbolic Action)</td>
+        </tr>
+        <tr>
+          <td data-label="隐喻卡片"><strong>3. 博物馆</strong><span class="en-sub">MUSEUM</span></td>
+          <td data-label="ICTR 司法原声">
+            “只要数字媒介存续，人们就会知道证人的故事……哪怕是无名土地上一位普通农夫的微小经历，也会永远留存，无人能否认。”
+            <span class="quote-sub">— Everard O'Donnell，ICTR 副书记官（<a href="http://www.tribunalvoices.org/voices/video/553" target="_blank" rel="noopener noreferrer">Video #553</a>）</span>
+          </td>
+          <td data-label="跨领域权威定义">
+            “博物馆是保存、研究与反思遗产和文化的中心……赋予祖先留下的物质痕迹以价值，在凝聚社会共识中发挥关键作用。”
+            <span class="quote-sub">— 联合国教科文组织（UNESCO）</span>
+          </td>
+          <td data-label="桥梁概念"><strong>器物</strong> (Artifacts) · <strong>遗产</strong> (Heritage) · <strong>故事</strong> (Stories)</td>
+        </tr>
+        <tr>
+          <td data-label="隐喻卡片"><strong>4. 初创企业</strong><span class="en-sub">STARTUP</span></td>
+          <td data-label="ICTR 司法原声">
+            “若能从卢旺达与前南斯拉夫特别法庭的经验中拓展思维，我们就能打造运转更佳的新系统，与服务的人民建立更深联系。”
+            <span class="quote-sub">— William Egbe，ICTR 律师（<a href="http://www.tribunalvoices.org/voices/video/456" target="_blank" rel="noopener noreferrer">Video #456</a>）</span>
+          </td>
+          <td data-label="跨领域权威定义">
+            “任何在极端不确定性下创造新产品或服务的组织都是初创企业……它是一项高度人性化的事业，创新是其本质定义。”
+            <span class="quote-sub">— Eric Ries，《精益创业》</span>
+          </td>
+          <td data-label="桥梁概念"><strong>创意</strong> (Ideas) · <strong>创新</strong> (Innovation) · <strong>试验场</strong> (Testbed)</td>
+        </tr>
+        <tr>
+          <td data-label="隐喻卡片"><strong>5. 公司</strong><span class="en-sub">COMPANY</span></td>
+          <td data-label="ICTR 司法原声">
+            “法庭最常受批评的是审理周期过长与成本高昂……我始终关注‘公平且迅速的审判’这一古训。”
+            <span class="quote-sub">— Dennis Byron，ICTR 法官（<a href="http://www.tribunalvoices.org/voices/video/65" target="_blank" rel="noopener noreferrer">Video #65</a>）</span>
+          </td>
+          <td data-label="跨领域权威定义">
+            “每个组织都有一套‘企业理论’——这些假设塑造组织行为，决定做什么与不做什么，并定义何为有意义的成果。”
+            <span class="quote-sub">— Peter F. Drucker，《企业理论》(1994)</span>
+          </td>
+          <td data-label="桥梁概念"><strong>复杂组织</strong> (Complex Organization) · <strong>效率</strong> (Efficiency) · <strong>产品</strong> (Products)</td>
+        </tr>
+        <tr>
+          <td data-label="隐喻卡片"><strong>6. 实验室</strong><span class="en-sub">LABORATORY</span></td>
+          <td data-label="ICTR 司法原声">
+            “我们举办了约 12 场研讨会，邀请学者、从业者与法官探讨不断演进的判例法，聚焦灭绝种族罪等法理边界。”
+            <span class="quote-sub">— Suzanne Chenault，ICTR 法律官员（<a href="http://www.tribunalvoices.org/voices/video/445" target="_blank" rel="noopener noreferrer">Video #445</a>）</span>
+          </td>
+          <td data-label="跨领域权威定义">
+            “受控变量是实证科学知识的基石。实验室允许对决策环境进行严密控制，实现自然环境中难以复制的观测与复现。”
+            <span class="quote-sub">— Armin Falk &amp; James J. Heckman（<a href="https://doi.org/10.1126/science.1168244" target="_blank" rel="noopener noreferrer">Science, 2009</a>）</span>
+          </td>
+          <td data-label="桥梁概念"><strong>实验</strong> (Experimentation) · <strong>原则</strong> (Principles) · <strong>可复现性</strong> (Reproducibility)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      <strong>第 13–14 页空白自定义模板：</strong> 预留了 <code>Title / Definition / Quote / bridging concepts</code> 开放结构，支持研究者针对任意垂直领域（如数字纪念、医疗照护）制作专属隐喻卡片。
+    </p>
+
+    <figure id="logic-flow">
+      <div class="fig-title">VSD 三元调查引擎与隐喻卡片四步法如何协同运转</div>
+      <svg viewBox="0 0 640 620" width="100%" role="img" aria-label="VSD 三元迭代与隐喻卡片四步逻辑分析图">
+        <defs>
+          <marker id="arr-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#0D9488"/>
+          </marker>
+          <marker id="arr-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#D97706"/>
+          </marker>
+        </defs>
+
+        <!-- Upper Section: Tripartite Engine -->
+        <text x="16" y="24" fill="#475569" font-size="14" font-family="JetBrains Mono, monospace" font-weight="600">PART A · VSD 三元迭代引擎（概念 ↔ 实证 ↔ 技术）</text>
+        <rect x="16" y="40" width="190" height="92" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.8"/>
+        <text x="111" y="72" text-anchor="middle" fill="#0F766E" font-size="16" font-weight="700">概念调查</text>
+        <text x="111" y="98" text-anchor="middle" fill="#334155" font-size="14">哲学界定·利益相关者</text>
+        <text x="111" y="118" text-anchor="middle" fill="#334155" font-size="14">厘清核心价值张力</text>
+
+        <line x1="206" y1="86" x2="225" y2="86" stroke="#0D9488" stroke-width="2" marker-end="url(#arr-t)"/>
+
+        <rect x="225" y="40" width="190" height="92" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8"/>
+        <text x="320" y="72" text-anchor="middle" fill="#B45309" font-size="16" font-weight="700">实证调查</text>
+        <text x="320" y="98" text-anchor="middle" fill="#334155" font-size="14">定性访谈·民族志</text>
+        <text x="320" y="118" text-anchor="middle" fill="#334155" font-size="14">捕捉真实语境痛点</text>
+
+        <line x1="415" y1="86" x2="434" y2="86" stroke="#D97706" stroke-width="2" marker-end="url(#arr-a)"/>
+
+        <rect x="434" y="40" width="190" height="92" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.8"/>
+        <text x="529" y="72" text-anchor="middle" fill="#0F766E" font-size="16" font-weight="700">技术调查</text>
+        <text x="529" y="98" text-anchor="middle" fill="#334155" font-size="14">剖析既有机制</text>
+        <text x="529" y="118" text-anchor="middle" fill="#334155" font-size="14">主动设计新原型系统</text>
+
+        <!-- Divider -->
+        <line x1="16" y1="162" x2="624" y2="162" stroke="#CBD5E1" stroke-width="1"/>
+
+        <!-- Lower Section: Metaphor Cards 4 Steps -->
+        <text x="16" y="190" fill="#475569" font-size="14" font-family="JetBrains Mono, monospace" font-weight="600">PART B · 隐喻卡片四步生成与重构机制（DIS 2018）</text>
+
+        <rect x="16" y="208" width="608" height="72" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.8"/>
+        <text x="36" y="238" fill="#0F766E" font-size="15" font-family="JetBrains Mono, monospace" font-weight="500">01 FAMILIARIZE（沉浸田野）</text>
+        <text x="36" y="264" fill="#0F172A" font-size="16">采集一线人员真实经历与价值痛点（如 ICTR 49 位访谈者）</text>
+
+        <line x1="320" y1="280" x2="320" y2="304" stroke="#0D9488" stroke-width="2" marker-end="url(#arr-t)"/>
+
+        <rect x="16" y="308" width="608" height="72" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.8"/>
+        <text x="36" y="338" fill="#0F766E" font-size="15" font-family="JetBrains Mono, monospace" font-weight="500">02 METAPHORIZE（生成隐喻）</text>
+        <text x="36" y="364" fill="#0F172A" font-size="16">挑选跨界机构/日常事物，提炼 3 个可迁移的“桥梁概念”</text>
+
+        <line x1="320" y1="380" x2="320" y2="404" stroke="#D97706" stroke-width="2" marker-end="url(#arr-a)"/>
+
+        <rect x="16" y="408" width="608" height="72" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8"/>
+        <text x="36" y="438" fill="#B45309" font-size="15" font-family="JetBrains Mono, monospace" font-weight="500">03 CONCRETIZE（具象制卡）</text>
+        <text x="36" y="464" fill="#0F172A" font-size="16">正面：标题与实景图 ｜ 背面：原声 + 权威定义 + 桥梁概念</text>
+
+        <line x1="320" y1="480" x2="320" y2="504" stroke="#D97706" stroke-width="2" marker-end="url(#arr-a)"/>
+
+        <rect x="16" y="508" width="608" height="100" fill="#0F172A"/>
+        <text x="36" y="538" fill="#5EEAD4" font-size="15" font-family="JetBrains Mono, monospace" font-weight="500">04 EXPLORE（心智重构示例）</text>
+        <text x="36" y="566" fill="#FFFFFF" font-size="15">• 若将档案视作“医院” → 设计创伤知情检索与二次伤害防护</text>
+        <text x="36" y="592" fill="#E2E8F0" font-size="15">• 若将档案视作“剧场” → 强化公共见证仪式感与跨地域传播</text>
+      </svg>
+      <figcaption>图 2：综合 <a href="https://vsdesign.org/vsd/" target="_blank" rel="noopener noreferrer">About VSD</a> 与 <a href="https://everydayethics.uxp2.com/methods/metaphor-cards/" target="_blank" rel="noopener noreferrer">Improving Everyday Ethics: Metaphor Cards</a> 绘制。</figcaption>
+    </figure>
+  </section>
+
+  <!-- PART 3: 9 CONSTRUCTS & ALL 22 METHODS -->
+  <section id="constructs-methods" class="sec">
+    <h2>VSD 官网核心总纲：9 大理论构念与全部 22 种学术方法</h2>
+    <p>
+      <a href="https://old.vsdesign.org/" target="_blank" rel="noopener noreferrer">old.vsdesign.org</a> 现已全面迭代至 <a href="https://vsdesign.org/" target="_blank" rel="noopener noreferrer">vsdesign.org</a>（2026 年由 MIT Press 出版第 2 版专著，新增 40% 内容）。其学术底座由 <strong>9 大理论构念</strong> 支撑：
+    </p>
+
+    <div class="strip-3">
+      <div class="strip-item">
+        <h3>技术观与价值本体（1–3）</h3>
+        <p>
+          <strong>工具与技术</strong>（含基础设施的整体系统）；<strong>人类价值</strong>（嵌入文化语境的伦理与道德关切）；<strong>交互立场</strong>（人与技术双向互构，拒绝单向决定论）。
+        </p>
+      </div>
+      <div class="strip-item">
+        <h3>分析引擎与张力（4–6）</h3>
+        <p>
+          <strong>三元迭代调查法</strong>（概念/实证/技术）；<strong>利益相关者</strong>（直接、间接与非人类群体，并透明化设计师价值）；<strong>价值张力</strong>（如蛛网般动态权衡冲突）。
+        </p>
+      </div>
+      <div class="strip-item">
+        <h3>系统视野与实践哲学（7–9）</h3>
+        <p>
+          <strong>技术与社会结构共演化</strong>（联动政策与法规）；<strong>多生命周期设计</strong>（面向 50–100 年跨代议题）；<strong>追求进步而非完美</strong>（在持续实践中逼近善治）。
+        </p>
+      </div>
+    </div>
+
+    <p style="margin-top: 28px;">
+      以下为 <a href="https://vsdesign.org/vsd/" target="_blank" rel="noopener noreferrer">vsdesign.org/vsd/</a> 收录的<strong>全部 22 种学术方法</strong>分类速查表（保留官网原始编号 #01–#22；手机窄屏下自动转为竖向流式阅读）：
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 7%;">编号</th>
+          <th style="width: 24%;">方法名称（中/英）</th>
+          <th style="width: 19%;">核心定位</th>
+          <th style="width: 50%;">主要在做什么与代表文献</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="group-row"><td colspan="4">A. 利益相关者识别与偏见治理</td></tr>
+        <tr>
+          <td class="num" data-label="编号">#01</td>
+          <td data-label="方法名称"><strong>数据声明</strong><span class="en-sub">Data Statements</span></td>
+          <td data-label="核心定位">偏见管理与透明化</td>
+          <td data-label="主要在做什么与代表文献">为机器学习与 NLP 数据集编写标准化文档，记录语料来源与群体表征以缓解偏见（Bender &amp; Friedman, 2018; McMillan-Major et al., 2023）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#02</td>
+          <td data-label="方法名称"><strong>多元声音法</strong><span class="en-sub">Diverse Voices</span></td>
+          <td data-label="核心定位">政策包容性评审</td>
+          <td data-label="主要在做什么与代表文献">组织具有切身经历的“经验专家”小组审阅科技政策草案，识别盲区与改进机会（Magassa, Young &amp; Friedman, 2017–2024）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#03</td>
+          <td data-label="方法名称"><strong>利益相关者分析</strong><span class="en-sub">Stakeholder Analysis</span></td>
+          <td data-label="核心定位">群体识别与合法化</td>
+          <td data-label="主要在做什么与代表文献">区分直接交互的<strong>直接利益相关者</strong>与虽不使用但受影响的<strong>间接利益相关者</strong>，给出纳入/排除的实证依据（Friedman et al., 2006）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#04</td>
+          <td data-label="方法名称"><strong>利益相关者代币</strong><span class="en-sub">Stakeholder Tokens</span></td>
+          <td data-label="核心定位">实体化关系映射</td>
+          <td data-label="主要在做什么与代表文献">用游戏化实体代币区分核心、边缘与被排斥群体，并可视化各方权力与互动关系（Yoo, 2021）。</td>
+        </tr>
+
+        <tr class="group-row"><td colspan="4">B. 价值挖掘、表征与质性编码</td></tr>
+        <tr>
+          <td class="num" data-label="编号">#05</td>
+          <td data-label="方法名称"><strong>信息维度可扩展评估</strong><span class="en-sub">Scalable Assessments</span></td>
+          <td data-label="核心定位">尺度敏感价值诱发</td>
+          <td data-label="主要在做什么与代表文献">设计递进式问题，剥离信息普及度、空间接近度与颗粒度变化对隐私和信任的影响（Friedman, 1997; Munson et al., 2011）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#08</td>
+          <td data-label="方法名称"><strong>价值导向编码手册</strong><span class="en-sub">Value-oriented Coding Manual</span></td>
+          <td data-label="核心定位">质性数据分析</td>
+          <td data-label="主要在做什么与代表文献">构建层级化编码类别（每类含标签、定义及约 3 条实证例句），适用于口述、文本、行为与视觉数据（Kahn et al., 2003）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#09</td>
+          <td data-label="方法名称"><strong>价值导向原型/田野部署</strong><span class="en-sub">Value-oriented Prototype</span></td>
+          <td data-label="核心定位">情境化价值探测</td>
+          <td data-label="主要在做什么与代表文献">通过模型、原型与田野部署，在真实语境中提前探测尚未建成技术的价值张力（Woelfer &amp; Hendry, 2009）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#10</td>
+          <td data-label="方法名称"><strong>价值导向半结构访谈</strong><span class="en-sub">Value-oriented Interview</span></td>
+          <td data-label="核心定位">规范判断与理据挖掘</td>
+          <td data-label="主要在做什么与代表文献">聚焦受访者对技术的评价判断（“这样可以还是不可以？”）及其背后理据（“为什么？”），并顺势追问（Friedman, 1997）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#11</td>
+          <td data-label="方法名称"><strong>价值场景</strong><span class="en-sub">Value Scenario</span></td>
+          <td data-label="核心定位">叙事推演系统影响</td>
+          <td data-label="主要在做什么与代表文献">扩展传统场景设计，用故事推演技术在广泛普及与长期使用后对直接及间接群体的系统影响（Nathan et al., 2007, 2008）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#12</td>
+          <td data-label="方法名称"><strong>价值草图</strong><span class="en-sub">Value Sketch</span></td>
+          <td data-label="核心定位">非言语价值表达</td>
+          <td data-label="主要在做什么与代表文献">通过手绘草图活动，捕捉利益相关者难以用口头语言准确表达的技术认知与情感态度（Friedman et al., 2002）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#13</td>
+          <td data-label="方法名称"><strong>价值来源分析</strong><span class="en-sub">Value Source Analysis</span></td>
+          <td data-label="核心定位">厘清价值归属</td>
+          <td data-label="主要在做什么与代表文献">明确区分项目明文支持的价值、设计师个人/职业价值，以及其他直接与间接利益相关者持有的价值（Borning et al., 2005）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#18</td>
+          <td data-label="方法名称"><strong>民族志导向价值探究</strong><span class="en-sub">Ethnographically Informed Inquiry</span></td>
+          <td data-label="核心定位">长期田野机制剖析</td>
+          <td data-label="主要在做什么与代表文献">通过长期沉浸式田野观察，揭示价值、技术与社会结构在真实语境中随时间展开的复杂互动（Nathan, 2012）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#21</td>
+          <td data-label="方法名称"><strong>价值敏感行动-反思模型</strong><span class="en-sub">Action-Reflection Model</span></td>
+          <td data-label="核心定位">共创过程反思框架</td>
+          <td data-label="主要在做什么与代表文献">在协同设计活动中植入设计师或参与者生成的价值提示，促使团队边行动边开展伦理反思。</td>
+        </tr>
+
+        <tr class="group-row"><td colspan="4">C. 价值权衡与工程/制度转化</td></tr>
+        <tr>
+          <td class="num" data-label="编号">#06</td>
+          <td data-label="方法名称"><strong>价值水坝与水流</strong><span class="en-sub">Value Dams and Flows</span></td>
+          <td data-label="核心定位">张力化解与方案收敛</td>
+          <td data-label="主要在做什么与代表文献">先剔除哪怕少数人强烈抵触的技术特征（水坝），再强化多数人欢迎的价值特征（水流）（Miller et al., 2007）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#07</td>
+          <td data-label="方法名称"><strong>价值层级</strong><span class="en-sub">Values Hierarchy</span></td>
+          <td data-label="核心定位">价值向需求转化</td>
+          <td data-label="主要在做什么与代表文献">自上而下将抽象“价值”逐层拆解为“规范/目标”，最终转化为可检验的“工程技术需求”（van de Poel, 2013）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#16</td>
+          <td data-label="方法名称"><strong>技术与社会结构共演化</strong><span class="en-sub">Coevolve Tech &amp; Social Structure</span></td>
+          <td data-label="核心定位">拓展社会技术解空间</td>
+          <td data-label="主要在做什么与代表文献">将政策、法规、组织惯例与社会规范纳入设计范畴，与技术功能协同设计（Friedman et al., 2006）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#20</td>
+          <td data-label="方法名称"><strong>在线知情同意模型</strong><span class="en-sub">Model for Informed Consent</span></td>
+          <td data-label="核心定位">在线交互伦理原则</td>
+          <td data-label="主要在做什么与代表文献">围绕披露、理解、自愿、能力与同意五大要素设计在线机制，并确保不给用户造成过度操作负担（Friedman et al., 2000–2006）。</td>
+        </tr>
+
+        <tr class="group-row"><td colspan="4">D. 长远预见与卡片工具箱</td></tr>
+        <tr>
+          <td class="num" data-label="编号">#14</td>
+          <td data-label="方法名称"><strong>多生命周期协同设计</strong><span class="en-sub">Multi-lifespan Codesign</span></td>
+          <td data-label="核心定位">跨代际原型共创</td>
+          <td data-label="主要在做什么与代表文献">面向多代人与尚未出生的后代开展协同设计与原型构思，应对单代人无法完结的长期议题。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#15</td>
+          <td data-label="方法名称"><strong>多生命周期时间轴</strong><span class="en-sub">Multi-lifespan Timeline</span></td>
+          <td data-label="核心定位">长远时间观启动</td>
+          <td data-label="主要在做什么与代表文献">铺设跨越过去 100 年与未来 100 年的大尺度时间轴，引导参与者将自身生命置入历史与技术变迁中（Yoo et al., 2016）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#17</td>
+          <td data-label="方法名称"><strong>远景卡片</strong><span class="en-sub">Envisioning Cards</span></td>
+          <td data-label="核心定位">通用道德想象工具箱</td>
+          <td data-label="主要在做什么与代表文献"><a href="https://vsdesign.org/toolkits/envisioningcards/" target="_blank" rel="noopener noreferrer">第 2 版共 42 张卡片</a>（免费 PDF），涵盖利益相关者、时间、价值、普及性、多生命周期 5 大维度并纳入非人类利益相关者。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#19</td>
+          <td data-label="方法名称"><strong>隐喻卡片</strong><span class="en-sub">Metaphor Cards</span></td>
+          <td data-label="核心定位">生成性隐喻重构</td>
+          <td data-label="主要在做什么与代表文献">针对特定领域定制跨界隐喻卡组，借助桥梁概念打破默认心智模型（Logler, Yoo &amp; Friedman, 2018）。</td>
+        </tr>
+        <tr>
+          <td class="num" data-label="编号">#22</td>
+          <td data-label="方法名称"><strong>安全卡片</strong><span class="en-sub">Security Cards</span></td>
+          <td data-label="核心定位">人本安全威胁评估</td>
+          <td data-label="主要在做什么与代表文献">共 42 张卡片，融合 VSD 与安全威胁分析，从人类影响、攻击者动机、资源与手段四维培养人本安全思维（Koban et al., 2022）。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PART 4: APPLICATION DOMAINS & RESEARCH RESONANCE (FULL-BLEED BAND) -->
+  <section id="applications-research" class="full-band">
+    <div class="full-band-inner">
+      <h2>可以应用在哪里？五大实证版图与你的研究共振</h2>
+      <p>
+        根据 <a href="https://vsdesign.org/" target="_blank" rel="noopener noreferrer">VSD 官网</a>（2026 年第 2 版涵盖 <strong>13 个应用领域</strong>）与 <a href="https://vsdesign.org/projects/" target="_blank" rel="noopener noreferrer">Projects 项目库</a>，VSD 已广泛落地于五大领域：<strong>AI 与科技政策</strong>（NLP 去偏见、无人机/智能家居政策）、<strong>医疗与信息安全</strong>（植入式医疗设备、浏览器知情同意）、<strong>社会弱势群体与公共正义</strong>（无家可归青少年手机安全、卢旺达战后司法档案）、<strong>城市与生态韧性</strong>（UrbanSim 城市模拟、食物韧性、雪豹反盗猎），以及<strong>人机情感、物质性与文化记忆</strong>。
+      </p>
+
+      <div class="pull-quote">
+        “某些社会与情感议题——例如创伤治愈与跨代际记忆维系——在结构上注定无法在单一生命周期内完成。”
+      </div>
+
+      <figure id="timeline">
+        <div class="fig-title">多生命周期视野如何为“纸扎 / 数字纪念系统”补足代际韧性</div>
+        <svg viewBox="0 0 640 400" width="100%" role="img" aria-label="多生命周期设计时间轴对比图">
+          <line x1="108" y1="26" x2="108" y2="374" stroke="#94A3B8" stroke-width="3"/>
+
+          <circle cx="108" cy="52" r="9" fill="#64748B"/>
+          <text x="88" y="58" text-anchor="end" fill="#475569" font-size="15" font-family="JetBrains Mono, monospace">0–5年</text>
+          <text x="136" y="48" fill="#0F172A" font-size="18" font-weight="700">传统快速原型与产品周期</text>
+          <text x="136" y="74" fill="#475569" font-size="15">3–6 个月开发，18 个月部署，5 年内迭代淘汰</text>
+
+          <circle cx="108" cy="170" r="10" fill="#0D9488"/>
+          <text x="88" y="176" text-anchor="end" fill="#0F766E" font-size="15" font-family="JetBrains Mono, monospace">25–50年</text>
+          <text x="136" y="166" fill="#0F766E" font-size="18" font-weight="700">代际交替与“战略性暂停” (Strategic Pause)</text>
+          <text x="136" y="192" fill="#1E293B" font-size="15">数字纪念无需即时全盘敞开，可设计跨年度解锁的情感缓冲</text>
+          <text x="136" y="216" fill="#1E293B" font-size="15">机制，呼应“关系承载 (Relational Holding)”理论</text>
+
+          <circle cx="108" cy="306" r="10" fill="#D97706"/>
+          <text x="88" y="312" text-anchor="end" fill="#B45309" font-size="15" font-family="JetBrains Mono, monospace">75–100年</text>
+          <text x="136" y="302" fill="#B45309" font-size="18" font-weight="700">技术更迭与混合媒介承载 (Material Matters)</text>
+          <text x="136" y="328" fill="#1E293B" font-size="15">云端服务器可能失效，但实体手风琴折页手册与纸扎工艺</text>
+          <text x="136" y="352" fill="#1E293B" font-size="15">的物理痕迹仍能跨越技术周期，维系家族记忆</text>
+        </svg>
+        <figcaption>图 3：重构自 <a href="https://old.vsdesign.org/publications/pdf/iwv045.pdf" target="_blank" rel="noopener noreferrer">Friedman, Nathan &amp; Yoo (2016)</a> 与 <a href="https://old.vsdesign.org/publications/pdf/p4423-yoo.pdf" target="_blank" rel="noopener noreferrer">Yoo et al. (2016)</a>。</figcaption>
+      </figure>
+
+      <div class="strip-3">
+        <div class="strip-item">
+          <h3>方向一：数字纪念与死亡敏感设计</h3>
+          <p>
+            借助 <strong>Multi-lifespan Timeline (#15)</strong> 与 <strong>Strategic Pause</strong>，可为你的“烬生（ash live）”混合纪念系统与传统纸扎田野访谈提供跨代际评估框架，探讨生者如何看待 50 年后的数字遗存与物理焚烧。
+          </p>
+        </div>
+        <div class="strip-item">
+          <h3>方向二：Material Matters 物质性转向</h3>
+          <p>
+            VSD 实验室的 <a href="https://vsdesign.org/projects/" target="_blank" rel="noopener noreferrer">Material Matters (CHI 2020)</a> 追问数字技术背后的物理材质与维护照护，为你的纸扎地域异质性、皱纸质感与“数字焚烧 + 实体折页”混合设计提供了极佳的 CHI / C&amp;C 理论对话锚点。
+          </p>
+        </div>
+        <div class="strip-item">
+          <h3>方向三：北欧 PhD 申请桥梁（VASE）</h3>
+          <p>
+            官网 <a href="https://vsdesign.org/publications/" target="_blank" rel="noopener noreferrer">Publications</a> 特别推荐了丹麦奥胡斯大学主导的 <strong>VASE（Value Sensitive Design in Higher Education）</strong>。北欧 HCI 界极度推崇参与式设计与价值伦理的融合，掌握 VSD 方法库对未来申请北欧岗位制博士极具助力。
+          </p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 32px;">实战延伸：纸扎 / 数字纪念本土化隐喻卡组构想</h3>
+      <ul class="clean-list">
+        <li><strong>祖堂炉火 (Ancestral Hearth)</strong> — 桥梁概念：<em>转化、余温、烟尘消散</em>，对应数字焚烧与粒子消散动效的仪式边界。</li>
+        <li><strong>冥界邮局 (Post Office)</strong> — 桥梁概念：<em>投递、延迟回信、信物凭证</em>，对应跨时空寄托与“战略性暂停”机制。</li>
+        <li><strong>手风琴家谱 (Accordion Archive)</strong> — 桥梁概念：<em>折叠、触感痕迹、代际传阅</em>，对应数字-实体混合纪念物的物质保存。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources" class="sec">
+    <h2>Sources</h2>
+    <ol class="clean-list">
+      <li>University of Washington VSD Lab (2018). <a href="https://old.vsdesign.org/publications/pdf/metaphor_cards_internationaljustice_v.march2018.pdf" target="_blank" rel="noopener noreferrer">Metaphor Cards: International Justice (March 2018 PDF)</a>.</li>
+      <li>Logler, N., Yoo, D., &amp; Friedman, B. (2018). <a href="https://www.semanticscholar.org/paper/Metaphor-Cards%3A-A-How-to-Guide-for-Making-and-Using-Logler-Yoo/8ab988c67630d49c766fa39c84a1297014e718bb" target="_blank" rel="noopener noreferrer">Metaphor Cards: A How-to-Guide for Making and Using a Generative Metaphorical Design Toolkit (ACM DIS 2018)</a>.</li>
+      <li>Improving Everyday Ethics (UXP2 Lab). <a href="https://everydayethics.uxp2.com/methods/metaphor-cards/" target="_blank" rel="noopener noreferrer">Method Overview: Metaphor Cards</a>.</li>
+      <li>Value Sensitive Design Lab, UW. <a href="https://vsdesign.org/" target="_blank" rel="noopener noreferrer">Home</a> · <a href="https://vsdesign.org/vsd/" target="_blank" rel="noopener noreferrer">About VSD (9 Constructs &amp; 22 Methods)</a> · <a href="https://vsdesign.org/toolkits/" target="_blank" rel="noopener noreferrer">Toolkits</a> · <a href="https://vsdesign.org/projects/" target="_blank" rel="noopener noreferrer">Projects</a> · <a href="https://vsdesign.org/publications/" target="_blank" rel="noopener noreferrer">Publications &amp; VASE</a>.</li>
+      <li>Value Sensitive Design Lab (2024). <a href="https://vsdesign.org/toolkits/envisioningcards/" target="_blank" rel="noopener noreferrer">Envisioning Cards: A Value Sensitive Design Toolkit (2nd Edition)</a>.</li>
+      <li>Friedman, B., Nathan, L. P., &amp; Yoo, D. (2016). <a href="https://old.vsdesign.org/publications/pdf/iwv045.pdf" target="_blank" rel="noopener noreferrer">Multi-Lifespan Information System Design in Support of Transitional Justice</a>.</li>
+      <li>Yoo, D. et al. (2016). <a href="https://old.vsdesign.org/publications/pdf/p4423-yoo.pdf" target="_blank" rel="noopener noreferrer">Multi-lifespan Design Thinking (ACM CHI 2016)</a>.</li>
+      <li>Value Sensitive Design Lab Archive. <a href="https://old.vsdesign.org/" target="_blank" rel="noopener noreferrer">old.vsdesign.org (2009–2019 Archive)</a>.</li>
+    </ol>
+  </section>
+
+</div>
+
+</body>
+</html>
